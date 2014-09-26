@@ -1,6 +1,3 @@
-use std::rand;
-use std::io;
-
 pub struct Circle {
     x: f64,
     y: f64,
@@ -31,49 +28,55 @@ pub fn add_three_times_four(x: int) -> int {
     times_four(add_three(x))
 }
 
-pub fn random_guess() {
-    println!("Guess the number!");
-    loop {
-        let secret_number = (rand::random::<uint>() % 100u) + 1u;
-        println!("Enter your guess:");
-        let input = io::stdin().read_line()
-            .ok()
-            .expect("Failed to read line");
+pub mod games {
+    use std::rand;
+    use std::io;
 
-        let input_num: Option<uint> = from_str(input.as_slice().trim());
+    pub fn random_guess() {
+        println!("Guess the number!");
+        loop {
+            let secret_number = (rand::random::<uint>() % 100u) + 1u;
+            println!("Enter your guess:");
+            let input = io::stdin().read_line()
+                .ok()
+                .expect("Failed to read line");
 
-        let num = match input_num {
-            Some(num)   => num,
-            None        => {
-                println!("Please input a number!");
-                continue;
-            }
-        };
+            let input_num: Option<uint> = from_str(input.as_slice().trim());
 
-        println!("You guessed {}", input);
-        println!("Secret number {}", secret_number);
+            let num = match input_num {
+                Some(num)   => num,
+                None        => {
+                    println!("Please input a number!");
+                    continue;
+                }
+            };
 
-        match compare(num, secret_number) {
-            LESS => println!("Too small!"),
-            GREATER => println!("Too big"),
-            EQUAL => {
-                println!("You win!");
-                return;
+            println!("You guessed {}", input);
+            println!("Secret number {}", secret_number);
+
+            match compare(num, secret_number) {
+                LESS => println!("Too small!"),
+                GREATER => println!("Too big"),
+                EQUAL => {
+                    println!("You win!");
+                    return;
+                }
             }
         }
     }
-}
 
-enum Ordering {
-    LESS,
-    GREATER,
-    EQUAL
-}
+    enum Ordering {
+        LESS,
+        GREATER,
+        EQUAL
+    }
 
-fn compare(a: uint, b: uint) -> Ordering {
-    if a > b { GREATER }
-    else if a < b { LESS }
-    else { EQUAL }
+    fn compare(a: uint, b: uint) -> Ordering {
+        if a > b { GREATER }
+        else if a < b { LESS }
+        else { EQUAL }
+    }
+
 }
 
 #[cfg(test)]

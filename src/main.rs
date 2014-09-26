@@ -1,7 +1,7 @@
 extern crate hello_rust;
 use hello_rust::add_one;
 use hello_rust::Circle;
-use hello_rust::random_guess;
+use hello_rust::games;
 
 #[cfg(not(test))]
 fn main() {
@@ -80,7 +80,7 @@ fn main() {
     }
 
     let slice = nums_mutable.as_slice();
-    println!("slice: {}", slice);    
+    println!("slice: {}", slice);
 
-    random_guess();
+    games::random_guess();
 }
