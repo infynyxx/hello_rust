@@ -1,6 +1,7 @@
 extern crate hello_rust;
 use hello_rust::add_one;
 use hello_rust::Circle;
+use hello_rust::random_guess;
 
 #[cfg(not(test))]
 fn main() {
@@ -44,7 +45,7 @@ fn main() {
     println!("Result from task {}", result);
 
     let mut count = 0i;
-    while count < 10000i {
+    while count < 10i {
         count = count + 1i;
         spawn(proc() {
             println!("Count {}", count);
@@ -57,4 +58,29 @@ fn main() {
         Some(ref m) => println!("{}", *m),
         None => ()
     }
+
+
+    // procs
+    /////////////
+    let proc_variable = 25i;
+    let p = proc() {
+        proc_variable * proc_variable
+    };
+    println!("proc value is {}", p());
+
+    // vectors
+    // /////
+    let nums = vec![21i, 22i, 56i];
+    println!("nums: {}", nums);
+    let mut nums_mutable = vec![1i, 2i, 3i];
+    nums_mutable.push(100i);
+    println!("mutable nums: {}", nums_mutable);
+    for i in nums_mutable.iter() {
+        println!("{}", i);
+    }
+
+    let slice = nums_mutable.as_slice();
+    println!("slice: {}", slice);    
+
+    random_guess();
 }
