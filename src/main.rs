@@ -2,6 +2,9 @@ extern crate hello_rust;
 use hello_rust::add_one;
 use hello_rust::Circle;
 use hello_rust::games;
+use hello_rust::Person;
+use hello_rust::name_size;
+use hello_rust::hello;
 
 #[cfg(not(test))]
 fn main() {
@@ -82,5 +85,11 @@ fn main() {
     let slice = nums_mutable.as_slice();
     println!("slice: {}", slice);
 
-    games::random_guess();
+    //games::random_guess();
+    let person = Person{
+        first: "Prajwal".to_string(),
+        last: "Tuladhar".to_string()
+    };
+    println!("length of person is {}", name_size(&person));
+    hello();
 }

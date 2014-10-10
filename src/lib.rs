@@ -79,6 +79,28 @@ pub mod games {
 
 }
 
+pub struct Person {
+    pub first: String,
+    pub last: String
+}
+
+pub fn hello() {
+    let praj = Person {
+        first: "Prajwal".to_string(),
+        last: "Tuladhar".to_string()
+    };
+    println!("Size of person {} {} is {}", praj.first,
+        praj.last,
+        name_size(&praj));
+}
+
+pub fn name_size(person: &Person) -> uint {
+    //let Person {first, last} = person;
+    //first.len() + last.len()
+    person.first.len() + person.last.len()
+}
+
+
 #[cfg(test)]
 mod test {
     use super::add_three;
