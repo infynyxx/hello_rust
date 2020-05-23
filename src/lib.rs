@@ -47,7 +47,7 @@ pub mod games {
             debug!("input_num={:?} buffer={}", input_num, buffer);
 
             match input_num {
-                Ok(num)   => {
+                Ok(num) => {
                     println!("You guessed {}", num);
                     println!("Secret number {}", secret_number);
 
@@ -60,7 +60,7 @@ pub mod games {
                         }
                     }
                 },
-                Err(e)        => {
+                Err(_) => {
                     println!("Please input a number!");
                     continue;
                 }

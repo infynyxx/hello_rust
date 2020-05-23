@@ -22,7 +22,7 @@ fn main() {
 
     let nums = [1, 2];
     let noms = ["Jon", "John", "Ram", "Shyam"];
-    let mut odds = nums.iter().map(|&x| x * 2 - 1);
+    let odds = nums.iter().map(|&x| x * 2 - 1);
     for num in odds {
         thread::spawn(move || {
             println!("{} says hello from lightweight thread", noms[num]);
