@@ -4,8 +4,8 @@ use hello_rust::Circle;
 
 #[test]
 fn math_checks_out() {
-    let result = add_three_times_four(5i);
-    assert_eq!(32i, result);
+    let result = add_three_times_four(5i32);
+    assert_eq!(32i32, result);
 }
 
 #[test]
