@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/infynyxx/hello_rust.png)](http://travis-ci.org/infynyxx/hello_rust)
+![CI](https://github.com/infynyxx/hello_rust/workflows/CI/badge.svg)
 
 In oder to run tests:
 
