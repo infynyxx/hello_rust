@@ -89,7 +89,7 @@ fn main() {
     let slice = nums_mutable.as_slice();
     println!("slice: {:?}", slice);
 
-    //games::random_guess();
+    games::random_guess();
     let person = Person{
         first: "Prajwal".to_string(),
         last: "Tuladhar".to_string()

@@ -1,4 +1,5 @@
 //use rand;
+#[macro_use] extern crate log;
 
 pub struct Circle {
     x: f64,
@@ -32,38 +33,38 @@ pub fn add_three_times_four(x: i32) -> i32 {
 
 
 pub mod games {    
-    use std::io;
-    use std::str::FromStr;
+    use std::io;    
 
     pub fn random_guess() {
         println!("Guess the number!");
         loop {
-            let secret_number = (rand::random::<i32>() % 100 as i32) + 1 as i32;
+            let secret_number = (rand::random::<u32>() % 100 as u32) + 1;
             println!("Enter your guess:");
-            let mut input = String::new();
-            io::stdin().read_line(&mut input).ok().expect("Failed to read line");
+            let mut buffer = String::new();
+            io::stdin().read_line(&mut buffer).ok().expect("Failed to read line");
 
-            let input_num: Option<i32> = i32::from_str(&input).ok();
+            let input_num = buffer.trim().parse::<u32>();
+            debug!("input_num={:?} buffer={}", input_num, buffer);
 
-            let num = match input_num {
-                Some(num)   => num,
-                None        => {
+            match input_num {
+                Ok(num)   => {
+                    println!("You guessed {}", num);
+                    println!("Secret number {}", secret_number);
+
+                    match compare(num, secret_number) {
+                        Ordering::LESS => println!("Too small!"),
+                        Ordering::GREATER => println!("Too big"),
+                        Ordering::EQUAL => {
+                            println!("You win!");
+                            return;
+                        }
+                    }
+                },
+                Err(e)        => {
                     println!("Please input a number!");
                     continue;
                 }
             };
-
-            println!("You guessed {}", input);
-            println!("Secret number {}", secret_number);
-
-            match compare(num, secret_number) {
-                LESS => println!("Too small!"),
-                GREATER => println!("Too big"),
-                EQUAL => {
-                    println!("You win!");
-                    return;
-                }
-            }
         }
     }
 
@@ -73,7 +74,7 @@ pub mod games {
         EQUAL
     }
 
-    fn compare(a: i32, b: i32) -> Ordering {
+    fn compare(a: u32, b: u32) -> Ordering {
         if a > b { Ordering::GREATER }
         else if a < b { Ordering::LESS }
         else { Ordering::EQUAL }

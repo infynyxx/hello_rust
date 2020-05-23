@@ -5,3 +5,4 @@ authors = ["Prajwal Tuladhar <praj@infynyxx.com>"]
 
 [dependencies]
 rand = "0.7"
+log = "0.4.8"
