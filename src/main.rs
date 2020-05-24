@@ -6,8 +6,7 @@ fn main() {
     use hello_rust::Circle;
     use hello_rust::Person;
     use hello_rust::name_size;
-    use hello_rust::hello;
-    use hello_rust::recursive_data_structure;
+    use hello_rust::hello;    
 
     use std::thread;
     use std::sync::mpsc;
@@ -98,5 +97,6 @@ fn main() {
     println!("length of person is {}", name_size(&person));
     hello();
 
-    recursive_data_structure();
+    pub use crate::hello_rust::datastructure::common;
+    common::recursive_data_structure();
 }
