@@ -1,18 +1,17 @@
 extern crate hello_rust;
 
-use hello_rust::add_one;
-use hello_rust::Circle;
-use hello_rust::games;
-use hello_rust::Person;
-use hello_rust::name_size;
-use hello_rust::hello;
-use hello_rust::recursive_data_structure;
-
-use std::thread;
-use std::sync::mpsc;
-
 #[cfg(not(test))]
 fn main() {
+    use hello_rust::add_one;
+    use hello_rust::Circle;
+    use hello_rust::Person;
+    use hello_rust::name_size;
+    use hello_rust::hello;
+    use hello_rust::recursive_data_structure;
+
+    use std::thread;
+    use std::sync::mpsc;
+
     println!("Hello, world!");
     println!("add_one(100i) == {}", add_one(&100i32));
 
@@ -89,7 +88,9 @@ fn main() {
     let slice = nums_mutable.as_slice();
     println!("slice: {:?}", slice);
 
-    games::random_guess();
+    use crate::hello_rust::games;
+    games::games::random_guess();
+    
     let person = Person{
         first: "Prajwal".to_string(),
         last: "Tuladhar".to_string()
