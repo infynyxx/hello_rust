@@ -3,7 +3,7 @@
 // omitted generics
 fn print(s: &str) {
     println!("{}", s);
- }
+}
 
 // expanded
 fn print_expanded<'a>(s: &'a str) {

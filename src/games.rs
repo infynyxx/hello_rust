@@ -1,5 +1,5 @@
-pub mod games {    
-    use std::io;    
+pub mod games {
+    use std::io;
 
     pub fn random_guess() {
         println!("Guess the number!");
@@ -7,7 +7,10 @@ pub mod games {
             let secret_number = (rand::random::<u32>() % 100 as u32) + 1;
             println!("Enter your guess:");
             let mut buffer = String::new();
-            io::stdin().read_line(&mut buffer).ok().expect("Failed to read line");
+            io::stdin()
+                .read_line(&mut buffer)
+                .ok()
+                .expect("Failed to read line");
 
             let input_num = buffer.trim().parse::<u32>();
             debug!("input_num={:?} buffer={}", input_num, buffer);
@@ -25,7 +28,7 @@ pub mod games {
                             return;
                         }
                     }
-                },
+                }
                 Err(_) => {
                     println!("Please input a number!");
                     continue;
@@ -37,13 +40,16 @@ pub mod games {
     enum Ordering {
         LESS,
         GREATER,
-        EQUAL
+        EQUAL,
     }
 
     fn compare(a: u32, b: u32) -> Ordering {
-        if a > b { Ordering::GREATER }
-        else if a < b { Ordering::LESS }
-        else { Ordering::EQUAL }
+        if a > b {
+            Ordering::GREATER
+        } else if a < b {
+            Ordering::LESS
+        } else {
+            Ordering::EQUAL
+        }
     }
-
 }

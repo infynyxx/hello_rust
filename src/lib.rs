@@ -1,6 +1,8 @@
-#[macro_use] extern crate log;
-pub mod games;
+#[macro_use]
+extern crate log;
+
 pub mod datastructure;
+pub mod games;
 pub mod lifetime;
 pub mod slice;
 pub mod structs;
@@ -8,7 +10,7 @@ pub mod structs;
 pub struct Circle {
     x: f64,
     y: f64,
-    radius: f64
+    radius: f64,
 }
 
 impl Circle {
@@ -20,16 +22,22 @@ impl Circle {
         Circle {
             x: x,
             y: y,
-            radius: radius
+            radius: radius,
         }
     }
 }
 
-fn add_three(x: i32) -> i32 { x + 3 }
+fn add_three(x: i32) -> i32 {
+    x + 3
+}
 
-fn times_four(x: i32) -> i32 { x * 4 }
+fn times_four(x: i32) -> i32 {
+    x * 4
+}
 
-pub fn add_one(x: &i32) -> i32 { *x + 1 }
+pub fn add_one(x: &i32) -> i32 {
+    *x + 1
+}
 
 pub fn add_three_times_four(x: i32) -> i32 {
     times_four(add_three(x))
@@ -37,17 +45,20 @@ pub fn add_three_times_four(x: i32) -> i32 {
 
 pub struct Person {
     pub first: String,
-    pub last: String
+    pub last: String,
 }
 
 pub fn hello() {
     let praj = Person {
         first: "Prajwal".to_string(),
-        last: "Tuladhar".to_string()
+        last: "Tuladhar".to_string(),
     };
-    println!("Size of person {} {} is {}", praj.first,
+    println!(
+        "Size of person {} {} is {}",
+        praj.first,
         praj.last,
-        name_size(&praj));
+        name_size(&praj)
+    );
 }
 
 pub fn name_size(person: &Person) -> i32 {
@@ -56,12 +67,11 @@ pub fn name_size(person: &Person) -> i32 {
     (person.first.len() + person.last.len()) as i32
 }
 
-
 #[cfg(test)]
 mod test {
+    use super::add_one;
     use super::add_three;
     use super::times_four;
-    use super::add_one;
 
     #[test]
     fn test_add_three() {

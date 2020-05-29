@@ -1,6 +1,6 @@
 pub struct Node {
     value: i32,
-    next: Option<Box<Node>>
+    next: Option<Box<Node>>,
 }
 
 impl Node {
@@ -9,7 +9,7 @@ impl Node {
         match self.next {
             Some(ref node) => {
                 node.print_value();
-            },
+            }
             None => {
                 println!("Next node: None");
             }
@@ -17,9 +17,18 @@ impl Node {
     }
 }
 
-pub fn recursive_data_structure() {    
-    let node1 = Node {value: 1, next: None};
-    let node2 = Node {value: 2, next: Some(Box::new(node1))};
-    let node3 = Node {value: 3, next: Some(Box::new(node2))};
+pub fn recursive_data_structure() {
+    let node1 = Node {
+        value: 1,
+        next: None,
+    };
+    let node2 = Node {
+        value: 2,
+        next: Some(Box::new(node1)),
+    };
+    let node3 = Node {
+        value: 3,
+        next: Some(Box::new(node2)),
+    };
     node3.print_value();
 }

@@ -3,20 +3,19 @@ extern crate hello_rust;
 #[cfg(not(test))]
 fn main() {
     use hello_rust::add_one;
+    use hello_rust::hello;
+    use hello_rust::name_size;
     use hello_rust::Circle;
     use hello_rust::Person;
-    use hello_rust::name_size;
-    use hello_rust::hello;    
 
-    use std::thread;
     use std::sync::mpsc;
+    use std::thread;
 
     println!("Hello, world!");
     println!("add_one(100i) == {}", add_one(&100i32));
 
     let c = Circle::new(0.0, 0.0, 2.0);
     println!("area == {}", c.area());
-
 
     let nums = [1, 2];
     let noms = ["Jon", "John", "Ram", "Shyam"];
@@ -58,19 +57,16 @@ fn main() {
         });
     }
 
-    let msg = Some("Howdy");    
+    let msg = Some("Howdy");
     match msg {
         Some(ref m) => println!("{}", *m),
-        None => ()
+        None => (),
     }
-
 
     // procs
     /////////////
     let proc_variable = 25i32;
-    let p = move || {
-        proc_variable * proc_variable
-    };
+    let p = move || proc_variable * proc_variable;
     println!("proc value is {}", p());
 
     // vectors
@@ -85,11 +81,11 @@ fn main() {
     }
 
     let slice = nums_mutable.as_slice();
-    println!("slice: {:?}", slice);    
-    
-    let person = Person{
+    println!("slice: {:?}", slice);
+
+    let person = Person {
         first: "Prajwal".to_string(),
-        last: "Tuladhar".to_string()
+        last: "Tuladhar".to_string(),
     };
     println!("length of person is {}", name_size(&person));
     hello();
