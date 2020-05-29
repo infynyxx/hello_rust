@@ -3,6 +3,7 @@ pub mod games;
 pub mod datastructure;
 pub mod lifetime;
 pub mod slice;
+pub mod structs;
 
 pub struct Circle {
     x: f64,
