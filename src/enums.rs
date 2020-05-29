@@ -23,9 +23,9 @@ fn test_V4() {
 #[test]
 fn test_V6() {
     let x = IpAddress::V6(String::from("::1"));
-    let matched = match x {
-        IpAddress::V6(value) => Some(value),
-        _ => None,
-    };
-    assert_eq!(matched, Some(String::from("::1")))
+    if let IpAddress::V6(value) = x {
+        assert_eq!(value, String::from("::1"))
+    } else {
+        assert!(false, "none");
+    }
 }
