@@ -1,6 +1,8 @@
 #[macro_use] extern crate log;
 pub mod games;
 pub mod datastructure;
+pub mod lifetime;
+pub mod slice;
 
 pub struct Circle {
     x: f64,

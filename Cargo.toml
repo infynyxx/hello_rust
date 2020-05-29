@@ -6,3 +6,5 @@ authors = ["Prajwal Tuladhar <praj@infynyxx.com>"]
 [dependencies]
 rand = "0.7"
 log = "0.4.8"
+tokio = { version = "0.2.20", features = ["full"] }
+futures = "0.3.4"

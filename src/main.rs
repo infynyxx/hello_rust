@@ -85,10 +85,7 @@ fn main() {
     }
 
     let slice = nums_mutable.as_slice();
-    println!("slice: {:?}", slice);
-
-    use crate::hello_rust::games;
-    games::games::random_guess();
+    println!("slice: {:?}", slice);    
     
     let person = Person{
         first: "Prajwal".to_string(),
@@ -99,4 +96,10 @@ fn main() {
 
     pub use crate::hello_rust::datastructure::common;
     common::recursive_data_structure();
+
+    pub use crate::hello_rust::lifetime;
+    lifetime::main();
+
+    use crate::hello_rust::games;
+    games::games::random_guess();
 }
