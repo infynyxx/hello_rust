@@ -2,6 +2,7 @@
 extern crate log;
 
 pub mod datastructure;
+pub mod enums;
 pub mod games;
 pub mod lifetime;
 pub mod slice;
