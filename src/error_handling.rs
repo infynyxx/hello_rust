@@ -3,17 +3,10 @@ use std::io;
 use std::io::Read;
 
 fn read_from_file(file_name: &String) -> Result<String, io::Error> {
-    let file_path = File::open(file_name);
-    let mut f = match file_path {
-        Ok(file) => file,
-        Err(e) => return Err(e),
-    };
-
+    let mut file_path = File::open(file_name)?;
     let mut s = String::new();
-    match f.read_to_string(&mut s) {
-        Ok(_) => Ok(s),
-        Err(e) => Err(e),
-    }
+    file_path.read_to_string(&mut s)?;
+    Ok(s)
 }
 
 #[test]
