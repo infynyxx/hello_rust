@@ -1,8 +1,11 @@
 #[macro_use]
 extern crate log;
 
+extern crate tempfile;
+
 pub mod datastructure;
 pub mod enums;
+pub mod error_handling;
 pub mod games;
 pub mod lifetime;
 pub mod slice;
