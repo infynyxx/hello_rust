@@ -1,12 +1,14 @@
 #[macro_use]
 extern crate log;
 
+extern crate assert_approx_eq;
 extern crate tempfile;
 
 pub mod datastructure;
 pub mod enums;
 pub mod error_handling;
 pub mod games;
+pub mod generics;
 pub mod lifetime;
 pub mod slice;
 pub mod structs;
