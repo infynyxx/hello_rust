@@ -35,8 +35,6 @@ fn test_read_from_file() {
     let file_content = String::from("Hello Rust!");
     writeln!(temp_file, "{}", file_content);
 
-    //let file_path_str = file_path.display().to_string();
-
     let rs = read_from_file(&file_path.display().to_string());
     assert_eq!(rs.unwrap().trim(), file_content);
 }
