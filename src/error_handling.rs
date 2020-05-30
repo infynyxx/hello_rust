@@ -3,9 +3,8 @@ use std::io;
 use std::io::Read;
 
 fn read_from_file(file_name: &String) -> Result<String, io::Error> {
-    let mut file_path = File::open(file_name)?;
     let mut s = String::new();
-    file_path.read_to_string(&mut s)?;
+    File::open(file_name)?.read_to_string(&mut s)?;
     Ok(s)
 }
 
