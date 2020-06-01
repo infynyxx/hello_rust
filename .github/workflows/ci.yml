@@ -4,13 +4,16 @@ on: [push]
 
 jobs:
   build:
-    name: Rust project
+    name: hello_rust_stable
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        toolchain: ["stable", "nightly"]
     steps:
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
+          toolchain: ${{ matrix.toolchain }}
       - uses: actions-rs/cargo@v1
         with:
           command: build
