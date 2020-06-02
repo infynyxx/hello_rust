@@ -25,4 +25,5 @@ jobs:
       - name: Run tests
         uses: actions-rs/cargo@v1
         with:
-          command: test -- --show-output
+          command: test
+          args: -- --show-output
