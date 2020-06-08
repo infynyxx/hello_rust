@@ -10,6 +10,7 @@ pub mod enums;
 pub mod error_handling;
 pub mod games;
 pub mod generics;
+pub mod iter;
 pub mod lifetime;
 pub mod slice;
 pub mod structs;

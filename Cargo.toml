@@ -10,3 +10,10 @@ tokio = { version = "0.2.20", features = ["full"] }
 futures = "0.3.4"
 tempfile = "3"
 assert_approx_eq = "1.1.0"
+
+# https://doc.rust-lang.org/book/ch14-01-release-profiles.html
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3
