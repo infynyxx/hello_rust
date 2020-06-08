@@ -1,12 +1,12 @@
-extern crate hello_rust;
+extern crate playground;
 
 #[cfg(not(test))]
 fn main() {
-    use hello_rust::add_one;
-    use hello_rust::hello;
-    use hello_rust::name_size;
-    use hello_rust::Circle;
-    use hello_rust::Person;
+    use playground::add_one;
+    use playground::hello;
+    use playground::name_size;
+    use playground::Circle;
+    use playground::Person;
 
     use std::sync::mpsc;
     use std::thread;
@@ -90,12 +90,12 @@ fn main() {
     println!("length of person is {}", name_size(&person));
     hello();
 
-    pub use crate::hello_rust::datastructure::common;
+    pub use crate::playground::datastructure::common;
     common::recursive_data_structure();
 
-    pub use crate::hello_rust::lifetime;
+    pub use crate::playground::lifetime;
     lifetime::main();
 
-    use crate::hello_rust::games;
+    use crate::playground::games;
     games::games::random_guess();
 }

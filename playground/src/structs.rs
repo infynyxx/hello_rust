@@ -24,7 +24,7 @@ impl Rectangle {
 
 #[cfg(test)]
 mod tests {
-    use structs::Rectangle;
+    use super::*;
 
     #[test]
     fn test_area() {
